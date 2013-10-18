@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- <include file="struts-default.xml"></include> -->
+	<package name="struts2-login" extends="struts-default"
+		namespace="/test">
+		<action name="LoginAction" class="org.verphen.action.LoginAction">
+			<result name="success">/loginSuccess.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+	</package>
+
+	<package name="fileUploadDemo" extends="struts-default">
+		<action name="fileUpload" class="org.verphen.action.FileUploadAction">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<result name="input">/upload/fileUpload.jsp </result>
+			<result name="success">/upload/showUpload.jsp </result>
+		</action>
+	</package>
+</struts>
